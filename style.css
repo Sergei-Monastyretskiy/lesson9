@@ -3,7 +3,6 @@
     --font-main: 'Roboto', sans-serif;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
-
     /* Colors */
     --color-bg: #EDEFF1;
     --color-section-light: #f7f7f7;
@@ -14,7 +13,6 @@
     --color-text-secondary: #6B6B6B;
     --color-text-light: #fff;
     --color-text-muted: #727272;
-
     /* Typography sizes */
     --fs-menu: 16px;
     --fs-title: 48px;
@@ -24,7 +22,6 @@
     --fs-footer-name: 21px;
     --fs-footer-copy: 13px;
     --fs-stat-number: 20px;
-
     /* Layout */
     --container-primary: 1110px;
     --container-sm: 540px;
@@ -34,27 +31,27 @@
     --section-padding: 93px;
 }
 
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.page {
     font-family: var(--font-main);
-    background-color: var(--color-bg);
+    background: var(--color-bg);
     color: var(--color-text);
 }
 
 /* Header */
-header {
+.header {
     display: flex;
     justify-content: flex-start;
     padding: 40px 0;
 }
 
-nav ul {
+/* Nav */
+.nav__list {
     display: flex;
     list-style: none;
     gap: var(--nav-gap);
@@ -63,9 +60,8 @@ nav ul {
     line-height: 0.5;
 }
 
-nav a {
+.nav__link {
     position: relative;
-    /* Для позиционирования псевдоэлемента */
     font-weight: var(--font-weight-medium);
     font-size: var(--fs-menu);
     line-height: 164%;
@@ -73,14 +69,14 @@ nav a {
     color: var(--color-text);
     text-decoration: none;
     text-transform: uppercase;
-    transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    transition: color .2s ease-in-out, opacity .2s ease-in-out;
 }
 
-nav a.active {
+.nav__link--active {
     color: var(--color-accent);
 }
 
-nav a::after {
+.nav__link::after {
     content: '';
     display: block;
     position: absolute;
@@ -91,22 +87,22 @@ nav a::after {
     height: 2px;
     background: var(--color-accent);
     border-radius: 1px;
-    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
-    opacity: 0.8;
+    transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+    opacity: .8;
     pointer-events: none;
 }
 
-nav a:hover,
-nav a:focus {
+.nav__link:hover,
+.nav__link:focus {
     color: var(--color-accent);
 }
 
-nav a:hover::after,
-nav a:focus::after {
+.nav__link:hover::after,
+.nav__link:focus::after {
     transform: translateX(-50%) scaleX(1);
 }
 
-/* First screen */
+/* First screen*/
 .first-screen {
     display: flex;
     flex-direction: column;
@@ -114,13 +110,13 @@ nav a:focus::after {
     margin: 93px auto;
 }
 
-.first-screen h1 {
+.first-screen-title {
     font-size: var(--fs-title);
     font-weight: var(--font-weight-medium);
     margin-bottom: 45px;
 }
 
-.first-screen p {
+.first-screen-description {
     font-size: var(--fs-text);
     line-height: 1.5;
     color: var(--color-text-secondary);
@@ -129,32 +125,33 @@ nav a:focus::after {
 }
 
 .btn {
-    background-color: var(--color-accent);
+    background: var(--color-accent);
     color: var(--color-text-light);
     padding: 24px 56px;
     font-size: var(--fs-menu);
-    letter-spacing: 0.1em;
+    letter-spacing: .1em;
     text-transform: uppercase;
     border: none;
     cursor: pointer;
     margin-bottom: 30px;
 }
 
-/* About section */
+/* About */
 .about-section {
-    background-color: var(--color-section-light);
+    background: var(--color-section-light);
     text-align: center;
     padding: var(--section-padding) 20px;
 }
 
-.style-section h2 {
+/* Было .style-section h2 / p — заменили на два отдельных класса */
+.section-title {
     font-size: var(--fs-subtitle);
     font-weight: var(--font-weight-medium);
     margin: 12px 0 43px;
     color: var(--color-text);
 }
 
-.style-section p {
+.section-text {
     font-size: var(--fs-text);
     line-height: 1.64;
     color: var(--color-text-muted);
@@ -162,16 +159,16 @@ nav a:focus::after {
     margin: 0 auto;
 }
 
-/* Work section */
+/* Work */
 .work-section {
-    background-color: var(--color-section-alt);
+    background: var(--color-section-alt);
     text-align: center;
     margin-top: 105px;
 }
 
-/* Stats section */
+/* Stats */
 .stats-section {
-    background-color: var(--color-primary);
+    background: var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,9 +183,11 @@ nav a:focus::after {
     color: var(--color-text-light);
 }
 
-.stat-item img {
+/* Было .stat-item img — заменили на отдельный класс для картинки */
+.stat-item__icon {
     width: 50px;
     height: auto;
+    display: block;
 }
 
 .stat-text {
@@ -207,7 +206,7 @@ nav a:focus::after {
     font-weight: var(--font-weight-regular);
 }
 
-/* Visually hidden */
+/* Utility */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -221,10 +220,10 @@ nav a:focus::after {
     overflow: hidden;
 }
 
-/* Video section */
+/* Video */
 .video {
     padding-bottom: 100px;
-    background-color: var(--color-bg);
+    background: var(--color-bg);
     margin-top: 56px;
 }
 
@@ -242,8 +241,8 @@ nav a:focus::after {
 }
 
 /* Footer */
-footer {
-    background-color: var(--color-primary);
+.footer {
+    background: var(--color-primary);
     padding: 46px 20px;
     color: var(--color-text-light);
 }
